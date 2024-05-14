@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+    <h1>Crear Cursos</h1>
+
+    {{error}}
+
+    <form action="/crear_cursos/" method="post">
+
+        {% csrf_token %}
+        {{formulario.as_p}}
+
+        <button>
+            Guardar
+        </button>
+        
+    </form>
+
+{% endblock %}

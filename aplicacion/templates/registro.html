@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+    <h1>Registro</h1>
+
+    {{error}}
+
+    <form method="post">
+        {% csrf_token %}
+        {{formulario.as_p}}
+
+        <button>
+            Registrarse
+        </button>
+    </form>
+    
+{% endblock %}

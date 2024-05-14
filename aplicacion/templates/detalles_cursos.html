@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+    <h1>Detalles: {{informacion_curso.nombre}}</h1>
+
+    {{error}}
+
+    <form method="POST">
+
+        {% csrf_token %}
+        {{formulario.as_p}}
+    
+        <button>
+            Editar
+        </button>
+
+    </form>
+
+    <form action="{% url 'eliminar_cursos' informacion_curso.id %}" method="POST">
+
+        {% csrf_token %}
+    
+        <button>
+            Eliminar
+        </button>
+
+    </form>
+
+    
+
+{% endblock %}

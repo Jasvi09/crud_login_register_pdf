@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<h1>Ver Cursos</h1>
+
+<ul>
+    {% for cursos in lista_de_cursos %}
+    <li>
+        {% if user.is_authenticated %}
+        <a href="{% url 'detalles_cursos' cursos.id %}">
+            <h2>{{cursos.nombre}}</h2>
+            <p>{{cursos.descripcion}}</p>
+            <p>{{cursos.duracion}}</p>
+            <p>{{cursos.link}}</p>
+            <p>{{cursos.creador}}</p>
+            <p>{{cursos.usuario.username}}</p>
+        </a>
+        {% else %}
+        <h2>{{cursos.nombre}}</h2>
+        <p>{{cursos.descripcion}}</p>
+        <p>{{cursos.duracion}}</p>
+        <a target="_blank" href="{{cursos.link}}">Link</a>
+        <p>{{cursos.creador}}</p>
+        <p>{{cursos.usuario.username}}</p>
+        {% endif %}
+
+
+
+
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
